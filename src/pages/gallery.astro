@@ -1,0 +1,162 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionDivider from '../components/SectionDivider.astro';
+
+const categories = ["All", "Events", "Leadership", "Community", "Training"];
+
+const gallery = [
+  { src: "/images/gallery-page/Gallery-1.jpg", alt: "Gallery image 1", category: "Events" },
+  { src: "/images/gallery-page/Gallery-2.jpg", alt: "Gallery image 2", category: "Events" },
+  { src: "/images/gallery-page/Gallery-3.jpg", alt: "Gallery image 3", category: "Leadership" },
+  { src: "/images/gallery-page/Gallery-4.jpg", alt: "Gallery image 4", category: "Events" },
+  { src: "/images/gallery-page/Gallery-5.jpg", alt: "Gallery image 5", category: "Community" },
+  { src: "/images/gallery-page/Gallery-6.jpg", alt: "Gallery image 6", category: "Training" },
+  { src: "/images/gallery-page/Gallery-7.jpg", alt: "Gallery image 7", category: "Events" },
+  { src: "/images/gallery-page/Gallery-8.jpg", alt: "Gallery image 8", category: "Leadership" },
+  { src: "/images/gallery-page/Gallery-9.jpg", alt: "Gallery image 9", category: "Community" },
+  { src: "/images/gallery-page/Gallery-10.jpg", alt: "Gallery image 10", category: "Training" },
+  { src: "/images/gallery-page/Gallery-11.jpg", alt: "Gallery image 11", category: "Events" },
+  { src: "/images/gallery-page/Gallery-12.jpg", alt: "Gallery image 12", category: "Leadership" },
+  { src: "/images/gallery-page/Gallery-13.jpg", alt: "Gallery image 13", category: "Events" },
+  { src: "/images/gallery-page/Gallery-14.jpg", alt: "Gallery image 14", category: "Community" },
+  { src: "/images/gallery-page/Gallery-15.jpg", alt: "Gallery image 15", category: "Training" },
+  { src: "/images/gallery-page/Gallery-16.jpg", alt: "Gallery image 16", category: "Events" },
+  { src: "/images/gallery-page/Gallery-17.jpg", alt: "Gallery image 17", category: "Leadership" },
+  { src: "/images/gallery-page/Gallery-18.jpg", alt: "Gallery image 18", category: "Events" },
+  { src: "/images/gallery-page/Gallery-19.jpg", alt: "Gallery image 19", category: "Community" },
+  { src: "/images/gallery-page/Gallery-20.jpg", alt: "Gallery image 20", category: "Training" },
+  { src: "/images/gallery-page/Gallery-21.jpg", alt: "Gallery image 21", category: "Events" },
+  { src: "/images/gallery-page/Gallery-22.jpg", alt: "Gallery image 22", category: "Leadership" },
+  { src: "/images/gallery-page/Gallery-23.jpg", alt: "Gallery image 23", category: "Events" },
+  { src: "/images/gallery-page/Gallery-24.jpg", alt: "Gallery image 24", category: "Community" },
+  { src: "/images/gallery-page/Gallery-25.jpg", alt: "Gallery image 25", category: "Training" },
+  { src: "/images/gallery-page/Gallery-26.jpg", alt: "Gallery image 26", category: "Events" },
+  { src: "/images/gallery-page/Gallery-27.jpg", alt: "Gallery image 27", category: "Leadership" },
+  { src: "/images/gallery-page/Gallery-28.jpg", alt: "Gallery image 28", category: "Events" },
+  { src: "/images/gallery-page/Gallery-29.jpg", alt: "Gallery image 29", category: "Community" },
+  { src: "/images/gallery-page/Gallery-30.jpg", alt: "Gallery image 30", category: "Training" },
+  { src: "/images/gallery-page/Gallery-31.jpg", alt: "Gallery image 31", category: "Events" },
+  { src: "/images/gallery-page/Gallery-32.jpg", alt: "Gallery image 32", category: "Leadership" },
+  { src: "/images/gallery-page/Gallery-33.jpg", alt: "Gallery image 33", category: "Events" },
+  { src: "/images/gallery-page/Gallery-34.jpg", alt: "Gallery image 34", category: "Community" },
+  { src: "/images/gallery-page/Gallery-35.jpg", alt: "Gallery image 35", category: "Training" },
+  { src: "/images/gallery-page/Gallery-36.jpg", alt: "Gallery image 36", category: "Events" },
+  { src: "/images/gallery-page/Gallery-37.jpg", alt: "Gallery image 37", category: "Leadership" },
+  { src: "/images/gallery-page/Gallery-38.jpg", alt: "Gallery image 38", category: "Events" },
+  { src: "/images/gallery-page/Gallery-39.jpg", alt: "Gallery image 39", category: "Community" },
+];
+---
+
+<Base title="Gallery" description="Photos from KNCCI Meru Chapter events, trade fairs, leadership functions, training workshops, and community activities.">
+  <!-- Page Hero -->
+  <section class="relative bg-black py-20 lg:py-32 min-h-[50vh] flex items-center">
+    <div class="absolute inset-0">
+      <img src="/images/our-work-in-pictures-hero-gallery-page/cute-hipster-woman-photographer-searching-nice-shot.jpg" alt="KNCCI Meru Chapter — Our Work in Pictures" class="w-full h-full object-cover object-center opacity-50" />
+      <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="max-w-xl lg:max-w-2xl">
+        <p class="font-mono text-red text-xs uppercase tracking-widest mb-3">Photo Gallery</p>
+        <h1 class="font-display font-black text-4xl sm:text-5xl lg:text-5xl text-white leading-tight mb-4">Our Work in Pictures</h1>
+        <p class="text-white/70 text-lg lg:text-xl leading-relaxed">
+          Trade fairs, leadership events, training sessions, and community engagement — a visual record of the Chamber's activities.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <SectionDivider class="my-0" />
+
+  <!-- Gallery -->
+  <section class="bg-white py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Filters -->
+      <div class="flex flex-wrap gap-2 mb-8 justify-center" role="tablist" aria-label="Gallery filters">
+        {categories.map((cat, i) => (
+          <button
+            role="tab"
+            aria-selected={i === 0 ? 'true' : 'false'}
+            data-filter={cat.toLowerCase()}
+            class:list={[
+              'px-4 py-2 text-sm font-medium rounded-sm transition-colors',
+              i === 0 ? 'bg-red text-white' : 'bg-white text-black/60 border border-black/10 hover:border-red/40 hover:text-red'
+            ]}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <!-- Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery-grid">
+        {gallery.map((img) => (
+          <div
+            class="group cursor-pointer"
+            data-category={img.category.toLowerCase()}
+            onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)"
+          >
+            <div class="aspect-square overflow-hidden rounded-sm bg-black/10">
+              <img
+                src={img.src}
+                alt={img.alt}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+            <p class="text-black/50 text-xs mt-1.5 font-mono">{img.category}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-label="Image viewer" onclick="if(event.target===this)closeLightbox()">
+    <button
+      onclick="closeLightbox()"
+      class="absolute top-6 right-6 text-white/60 hover:text-white text-2xl leading-none"
+      aria-label="Close viewer"
+    >&times;</button>
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+
+  <script is:inline>
+    function openLightbox(src, alt) {
+      const lb = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      img.alt = alt;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // Category filtering
+    document.querySelectorAll('[data-filter]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active state
+        document.querySelectorAll('[data-filter]').forEach(b => {
+          b.classList.remove('bg-red', 'text-white');
+          b.classList.add('bg-white', 'text-black/60', 'border', 'border-black/10');
+        });
+        btn.classList.add('bg-red', 'text-white');
+        btn.classList.remove('bg-white', 'text-black/60', 'border', 'border-black/10');
+
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('[data-category]').forEach(item => {
+          if (filter === 'all' || item.dataset.category === filter) {
+            item.style.display = '';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</Base>

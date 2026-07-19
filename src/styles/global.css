@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #000000;
+  --color-oxblood: #ea2430;
+  --color-parchment: #F3ECE0;
+  --color-tea-gold: #C08A2E;
+  --color-highland: #0f793d;
+  --color-black: #000000;
+  --color-green: #0f793d;
+  --color-red: #ea2430;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+/* ─── Base ──────────────────────────────────────────── */
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: var(--color-parchment);
+}
+
+::selection {
+  background: var(--color-oxblood);
+  color: var(--color-parchment);
+}
+
+/* ─── Section ledger-rule borders ───────────────────── */
+.ledger-rule {
+  border-top: 1px solid var(--color-oxblood);
+  border-bottom: 1px solid var(--color-oxblood);
+}
+
+/* ─── Seal stamp animation ─────────────────────────── */
+@keyframes seal-stamp {
+  0%   { opacity: 0; transform: scale(1.8) rotate(-12deg); }
+  50%  { opacity: 1; transform: scale(0.95) rotate(2deg); }
+  70%  { transform: scale(1.03) rotate(-1deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+.seal-animate {
+  animation: seal-stamp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seal-animate {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* ─── Seal wax-fill on hover (Register button) ─────── */
+@keyframes seal-fill {
+  0%   { clip-path: circle(0% at 50% 50%); }
+  100% { clip-path: circle(75% at 50% 50%); }
+}
+
+/* ─── Staggered fade-rise for cards ─────────────────── */
+@keyframes fade-rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card-reveal {
+  opacity: 0;
+}
+
+.card-reveal.visible {
+  animation: fade-rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-reveal { opacity: 1; }
+  .card-reveal.visible { animation: none; opacity: 1; }
+}
+
+/* ─── Hero carousel crossfade ───────────────────────── */
+.hero-slide {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  position: absolute;
+  inset: 0;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  position: relative;
+}
+
+/* ─── Duotone image treatment ───────────────────────── */
+.duotone {
+  filter: grayscale(100%) contrast(1.1) brightness(0.8);
+  mix-blend-mode: multiply;
+}
+
+.duotone-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.25) 0%, rgba(234,36,48,0.15) 100%);
+}
+
+/* ─── File-folder card shape ────────────────────────── */
+.folder-tab {
+  clip-path: polygon(0 8px, 8px 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+
+/* ─── Custom scrollbar ─────────────────────────────── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-parchment); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-oxblood);
+  border-radius: 4px;
+}
+
+/* ─── Events carousel ──────────────────────────────── */
+.event-slide {
+  display: none;
+}
+.event-slide.active {
+  display: block;
+}
+
+/* ─── Lightbox ─────────────────────────────────────── */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(23, 19, 16, 0.95);
+  align-items: center;
+  justify-content: center;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+}

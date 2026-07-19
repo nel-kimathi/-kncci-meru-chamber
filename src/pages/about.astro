@@ -1,0 +1,157 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionDivider from '../components/SectionDivider.astro';
+import ScrollReveal from '../components/ScrollReveal.astro';
+---
+
+<Base title="About Us" description="Learn about KNCCI Meru Chapter — the county chamber representing Meru's business community under the national Kenya National Chamber of Commerce and Industry.">
+  <!-- Page Hero -->
+  <section class="relative bg-black py-20 lg:py-32 min-h-[50vh] flex items-center">
+    <div class="absolute inset-0">
+      <img src="/images/about-us-who-we-are-hero-image/about-hero.jpg" alt="KNCCI Meru Chapter — Who We Are" class="w-full h-full object-cover object-top opacity-50" />
+      <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="max-w-xl lg:max-w-2xl">
+        <p class="font-mono text-red text-xs uppercase tracking-widest mb-3">About the Chamber</p>
+        <h1 class="font-display font-black text-4xl sm:text-5xl lg:text-5xl text-white leading-tight mb-4">Who We Are</h1>
+        <p class="text-white/70 text-lg lg:text-xl leading-relaxed">
+          KNCCI Meru Chapter is the official county chamber representing Meru's business community, operating under the Kenya National Chamber of Commerce and Industry.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <SectionDivider class="my-0" />
+
+  <!-- Who We Are -->
+  <section class="bg-white py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-5 gap-10 lg:gap-16">
+        <div class="lg:col-span-3">
+          <h2 class="font-display font-black text-2xl lg:text-3xl text-black mb-6">KNCCI Meru Chapter</h2>
+          <div class="space-y-4 text-black/70 leading-relaxed">
+            <p>
+              KNCCI Meru Chapter is the county chamber representing Meru's business community, operating under the Kenya National Chamber of Commerce and Industry (KNCCI) — Kenya's longest-serving independent voice of the private sector, with a National Office and chambers across all 47 counties.
+            </p>
+            <p>
+              Established as part of the national KNCCI network (founded 1965, relaunched 2014), the Meru Chapter serves as the bridge between Meru's traders, SMEs, and large enterprises and the opportunities, advocacy, and connections they need to thrive.
+            </p>
+            <p>
+              Meru is the 5th largest county economy in Kenya and the leading county in horticultural production — coffee, tea, French beans, and dairy. The Chamber positions itself as a champion of both agribusiness and urban trade, working to ensure that Meru's business community has a powerful, unified voice.
+            </p>
+          </div>
+        </div>
+        <div class="lg:col-span-2 flex items-center justify-center">
+          <div class="w-full max-w-sm rounded-lg overflow-hidden border border-black/10 shadow-sm">
+            <img src="/images/kncci-meru-chapter-about-us-page/474619322_122094916118761255_5993447761115043602_n.jpg" alt="KNCCI Meru Chapter" class="w-full h-auto object-cover" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <SectionDivider class="my-0" />
+
+  <!-- Vision & Mission -->
+  <section class="bg-black py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-10 lg:gap-16">
+        <div class="card-reveal p-8 border border-white/10 rounded-sm">
+          <p class="font-mono text-red text-xs uppercase tracking-widest mb-3">Our Vision</p>
+          <h3 class="font-display font-black text-2xl lg:text-3xl text-white leading-tight">
+            A vibrant and prosperous Meru business community.
+          </h3>
+        </div>
+        <div class="card-reveal p-8 border border-white/10 rounded-sm" data-delay="150">
+          <p class="font-mono text-red text-xs uppercase tracking-widest mb-3">Our Mission</p>
+          <h3 class="font-display font-bold text-xl lg:text-2xl text-white leading-relaxed">
+            To facilitate and promote a sustainable business environment for economic growth and prosperity in Meru County.
+          </h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ScrollReveal />
+
+  <SectionDivider class="my-0" />
+
+  <!-- What We Do -->
+  <section class="bg-white py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="font-mono text-red text-xs uppercase tracking-widest mb-2">Our Work</p>
+        <h2 class="font-display font-black text-3xl lg:text-4xl text-black">What We Do</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          { title: "Advocacy", desc: "Championing pro-business policy at county and national government level, ensuring Meru traders' voices are heard." },
+          { title: "Social Unity", desc: "Fostering cohesion and collaboration within the trade community through forums, events, and shared initiatives." },
+          { title: "Business Intelligence", desc: "Collecting and sharing market data, trade information, and economic insights relevant to Meru's sectors." },
+          { title: "Dispute Resolution", desc: "Arbitrating commercial disputes between members through professional mediation and arbitration services." },
+          { title: "Trade Fairs & Networking", desc: "Organising trade fairs, expos, and networking events that connect Meru businesses to national and regional markets." },
+          { title: "Enterprise Support", desc: "Supporting MSEs, medium, and large enterprises with capacity building, training, and market linkages." },
+        ].map((item, i) => (
+          <div class="card-reveal">
+            <div class="w-8 h-px bg-red mb-4"></div>
+            <h3 class="font-display font-bold text-lg text-black mb-2">{item.title}</h3>
+            <p class="text-black/60 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <SectionDivider class="my-0" />
+
+  <!-- Meru's Economy -->
+  <section class="bg-white/60 py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div>
+          <p class="font-mono text-red text-xs uppercase tracking-widest mb-3">Meru County</p>
+          <h2 class="font-display font-black text-3xl lg:text-4xl text-black leading-tight mb-6">
+            Kenya's 5th Largest County Economy
+          </h2>
+          <p class="text-black/70 leading-relaxed mb-4">
+            Meru County sits on the fertile slopes of Mount Kenya, with volcanic soils that produce some of Kenya's finest coffee, tea, and horticultural products. It is the leading county in horticultural production — a powerhouse of French beans, dairy, and cut flowers.
+          </p>
+          <p class="text-black/70 leading-relaxed">
+            The Chamber exists to ensure that this economic strength translates into sustainable prosperity for all Meru businesses — from small market traders to large-scale agricultural exporters.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          {[
+            { stat: "5th", label: "Largest County Economy" },
+            { stat: "#1", label: "Horticultural Production" },
+            { stat: "47", label: "KNCCI County Chapters" },
+            { stat: "1965", label: "KNCCI Established" },
+          ].map((s) => (
+            <div class="bg-white p-6 border border-black/10 text-center">
+              <span class="block font-display font-black text-3xl text-red mb-1">{s.stat}</span>
+              <span class="font-mono text-xs text-black/50 uppercase tracking-wider">{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <SectionDivider class="my-0" />
+
+  <!-- CTA -->
+  <section class="bg-red py-16 lg:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display font-black text-3xl lg:text-4xl text-white mb-4">
+        Join the Chamber
+      </h2>
+      <p class="text-white/80 text-lg mb-8 max-w-xl mx-auto leading-relaxed">
+        Be part of Meru's most influential business network. Access advocacy, connections, and growth opportunities.
+      </p>
+      <a href="https://erp.kenyachamber.or.ke/kncci_meru/membership" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-10 py-4 bg-white text-black font-display font-bold text-lg rounded-sm hover:bg-green transition-colors">
+        Register Now
+      </a>
+    </div>
+  </section>
+</Base>

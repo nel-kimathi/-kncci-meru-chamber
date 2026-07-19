@@ -1,0 +1,129 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionDivider from '../components/SectionDivider.astro';
+import ScrollReveal from '../components/ScrollReveal.astro';
+
+const upcoming = [
+  { title: "Meru Business Forum Q3 2026", date: "2026-08-15", venue: "Meru Sports Club", desc: "Quarterly networking forum bringing together Meru business leaders and county officials for dialogue and connection.", img: "/images/events-page/event-1.jpeg" },
+  { title: "Export Readiness Workshop", date: "2026-09-02", venue: "KNCCI Meru Office", desc: "Capacity building workshop on export documentation, compliance, and market access for horticultural producers.", img: "/images/events-page/734023084_1595959488752383_281396285142645313_n.jpg" },
+  { title: "Annual Trade Fair 2026", date: "2026-10-20", venue: "Meru County Showground", desc: "The flagship annual trade exhibition showcasing Meru's products, services, and innovations to national and regional buyers.", img: "/images/events-page/741439022_1650927813706264_4407701890426235693_n.jpg" },
+  { title: "Business Networking Lunch", date: "2026-07-25", venue: "[Venue — pending]", desc: "Monthly networking lunch for members and prospective members to connect and explore collaboration opportunities.", img: "/images/events-page/event-1.jpeg" },
+];
+
+const past = [
+  { title: "Meru Business Forum Q2 2026", date: "2026-05-10", venue: "Meru Sports Club", desc: "Forum discussed county trade policies and featured presentations from three Meru SMEs.", img: "/images/events-page/741439022_1650927813706264_4407701890426235693_n.jpg" },
+  { title: "MOU Signing — County Government", date: "2026-04-15", venue: "Meru County Headquarters", desc: "Chamber signed a Memorandum of Understanding with the County Government on business advocacy and trade facilitation.", img: "/images/events-page/734023084_1595959488752383_281396285142645313_n.jpg" },
+  { title: "Digital Skills for Traders Workshop", date: "2026-03-22", venue: "KNCCI Meru Office", desc: "Training workshop on digital marketing, e-commerce, and mobile money tools for market traders and SMEs.", img: "/images/events-page/event-1.jpeg" },
+];
+---
+
+<Base title="Events" description="Upcoming and past events by KNCCI Meru Chapter — trade fairs, business forums, networking events, and training workshops.">
+  <!-- Page Hero -->
+  <section class="relative bg-black py-20 lg:py-32 min-h-[50vh] flex items-center">
+    <div class="absolute inset-0">
+      <img src="/images/party-image-hero-events-page/events-hero.jpg" alt="KNCCI Meru Chapter — Chamber Events" class="w-full h-full object-cover object-top opacity-50" />
+      <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="max-w-xl lg:max-w-2xl">
+        <p class="font-mono text-red text-xs uppercase tracking-widest mb-3">Calendar</p>
+        <h1 class="font-display font-black text-4xl sm:text-5xl lg:text-5xl text-white leading-tight mb-4">Chamber Events</h1>
+        <p class="text-white/70 text-lg lg:text-xl leading-relaxed">
+          Trade fairs, business forums, training workshops, and networking events — stay connected with the Meru business community.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <SectionDivider class="my-0" />
+
+  <!-- Upcoming Events -->
+  <section class="bg-white py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-10">
+        <p class="font-mono text-red text-xs uppercase tracking-widest mb-2">Coming Up</p>
+        <h2 class="font-display font-black text-3xl lg:text-4xl text-black">Upcoming Events</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-6 lg:gap-8">
+        {upcoming.map((ev) => (
+          <div class="card-reveal group bg-white border border-black/10 rounded-sm overflow-hidden hover:border-red/40 transition-all duration-300">
+            <div class="aspect-[3/2] overflow-hidden">
+              <img src={ev.img} alt={ev.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="font-mono text-xs text-red bg-red/10 px-2 py-0.5 rounded-sm">
+                  {new Date(ev.date).toLocaleDateString('en-KE', { year: 'numeric', month: 'short', day: 'numeric' })}
+                </span>
+                <span class="font-mono text-xs text-black/40">{ev.venue}</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-black mb-2 group-hover:text-red transition-colors">{ev.title}</h3>
+              <p class="text-black/60 text-sm leading-relaxed">{ev.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ScrollReveal />
+
+  <SectionDivider class="my-0" />
+
+  <!-- Past Events -->
+  <section class="bg-black py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-10">
+        <p class="font-mono text-red text-xs uppercase tracking-widest mb-2">Archive</p>
+        <h2 class="font-display font-black text-3xl lg:text-4xl text-white">Past Events</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {past.map((ev) => (
+          <div class="card-reveal group bg-white/5 border border-white/10 rounded-sm overflow-hidden">
+            <div class="aspect-[3/2] overflow-hidden">
+              <img src={ev.img} alt={ev.title} class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300" loading="lazy" />
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="font-mono text-xs text-red">
+                  {new Date(ev.date).toLocaleDateString('en-KE', { year: 'numeric', month: 'short', day: 'numeric' })}
+                </span>
+              </div>
+              <h3 class="font-display font-bold text-base text-white mb-2">{ev.title}</h3>
+              <p class="text-white/50 text-sm leading-relaxed">{ev.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <SectionDivider class="my-0" />
+
+  <!-- Facebook Feed -->
+  <section class="bg-white py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <p class="font-mono text-red text-xs uppercase tracking-widest mb-2">Social</p>
+        <h2 class="font-display font-black text-3xl lg:text-4xl text-black">From Our Facebook</h2>
+      </div>
+      <div class="flex justify-center">
+        <div class="fb-page" data-href="https://www.facebook.com/profile.php?id=61572837654875" data-tabs="timeline" data-width="800" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+          <blockquote cite="https://www.facebook.com/profile.php?id=61572837654875" class="fb-xfbml-parse-ignore">
+            <a href="https://www.facebook.com/profile.php?id=61572837654875">KNCCI Meru Chapter</a>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    if (typeof FB !== 'undefined') {
+      FB.XFBML.parse();
+    } else {
+      window.fbAsyncInit = function() {
+        FB.init({ xfbml: true, version: 'v19.0' });
+      };
+    }
+  </script>
+</Base>

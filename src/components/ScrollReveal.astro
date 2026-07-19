@@ -1,0 +1,22 @@
+<script>
+  // IntersectionObserver for card-reveal fade-rise
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          const delay = (entry.target as HTMLElement).dataset.delay || '0';
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, Number(delay));
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  document.querySelectorAll('.card-reveal').forEach((el, i) => {
+    el.dataset.delay = String((i % 6) * 100);
+    observer.observe(el);
+  });
+</script>

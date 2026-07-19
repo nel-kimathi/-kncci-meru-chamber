@@ -1,0 +1,11 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Deny all binaries from diff
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.jfif binary
+*.gif binary
+*.ico binary
+*.svg text eol=lf

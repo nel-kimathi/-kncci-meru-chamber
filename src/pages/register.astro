@@ -1,0 +1,144 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionDivider from '../components/SectionDivider.astro';
+
+const registerUrl = 'https://erp.kenyachamber.or.ke/kncci_meru/membership';
+
+const steps = [
+  {
+    num: 1,
+    icon: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z",
+    title: "Open the Registration Portal",
+    body: "Click the Register button on our website to go to the KNCCI Membership Portal to begin your application.",
+  },
+  {
+    num: 2,
+    icon: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z",
+    title: "Choose Your Registration Type",
+    body: "Select the option that best describes you: Individual or Business. Then choose the appropriate membership category.",
+  },
+  {
+    num: 3,
+    icon: "M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z",
+    title: "Click Enroll Now",
+    body: "Click the Enroll Now button to proceed to the application form.",
+  },
+  {
+    num: 4,
+    icon: "M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z",
+    title: "Fill in Your Details",
+    body: "Complete all required information including Full Name, Email Address, Phone Number, and Business Details if applicable. Review your information before submitting.",
+  },
+  {
+    num: 5,
+    icon: "M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z",
+    title: "Check Your Email",
+    body: "After submitting your application, open your email inbox and click the verification link to complete any remaining registration requirements.",
+  },
+];
+---
+
+<Base title="Register" description="Register as a member of KNCCI Meru Chapter — join Kenya's premier business chamber through our online portal.">
+  <!-- Page Hero -->
+  <section class="relative bg-black py-20 lg:py-32 min-h-[50vh] flex items-center">
+    <div class="absolute inset-0">
+      <img src="/images/hero-image-how-to-join-page/32131.jpg" alt="KNCCI Meru Chapter — How to Join" class="w-full h-full object-cover object-center opacity-50" />
+      <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="max-w-xl lg:max-w-2xl">
+        <p class="font-mono text-red text-xs uppercase tracking-widest mb-3">Membership</p>
+        <h1 class="font-display font-black text-4xl sm:text-5xl lg:text-5xl text-white leading-tight mb-4">How to Join</h1>
+        <p class="text-white/70 text-lg lg:text-xl leading-relaxed mb-8">
+          Follow the steps below to register as a member of KNCCI Meru Chapter through our online portal.
+        </p>
+        <a
+          href={registerUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center px-10 py-4 bg-red text-white font-display font-bold text-lg rounded-sm hover:bg-green transition-colors duration-300"
+        >
+          Register Now &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <SectionDivider class="my-0" />
+
+  <!-- Step Path -->
+  <section class="bg-white py-16 lg:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <p class="font-mono text-red text-xs uppercase tracking-widest mb-2">Step by Step</p>
+        <h2 class="font-display font-black text-3xl lg:text-4xl text-ink">Registration Guide</h2>
+      </div>
+
+      <!-- Connected step path -->
+      <div class="relative">
+        <!-- Vertical red hairline -->
+        <div class="absolute left-6 top-0 bottom-0 w-px bg-red"></div>
+
+        {steps.map((step, i) => (
+          <div class="relative flex gap-6 pb-12 last:pb-0">
+            <!-- Circle badge -->
+            <div class="relative z-10 shrink-0 w-12 h-12 rounded-full bg-red text-white flex items-center justify-center shadow-lg shadow-red/20">
+              <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d={step.icon} /></svg>
+            </div>
+            <!-- Text -->
+            <div class="flex-1 pt-1.5">
+              <div class="flex items-baseline gap-3 mb-2">
+                <span class="font-mono text-xs text-red/60 uppercase tracking-wider">Step {step.num}</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-ink mb-2">{step.title}</h3>
+              <p class="text-ink/60 text-sm leading-relaxed">{step.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Congratulations -->
+      <div class="mt-6 mb-12 text-center">
+        <div class="inline-flex w-16 h-16 rounded-full bg-green/10 items-center justify-center">
+          <svg class="w-8 h-8 fill-green" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        </div>
+        <p class="font-display font-bold text-lg text-ink mt-4">Congratulations!</p>
+        <p class="text-ink/60 text-sm">Your registration has been successfully submitted.</p>
+      </div>
+
+      <!-- Bottom CTA -->
+      <div class="text-center mb-12">
+        <a
+          href={registerUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center px-10 py-4 bg-red text-white font-display font-bold text-lg rounded-sm hover:bg-green transition-colors duration-300"
+        >
+          Go to Registration Portal &rarr;
+        </a>
+      </div>
+
+      <!-- Need Help card -->
+      <div class="border-2 border-tea-gold bg-parchment rounded-sm p-8 lg:p-10">
+        <h3 class="font-display font-bold text-xl text-ink mb-2">Need Help?</h3>
+        <p class="text-ink/60 text-sm mb-6">Having trouble registering? Our team is ready to assist you.</p>
+        <div class="flex flex-col sm:flex-row gap-6">
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 shrink-0 fill-red" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <div>
+              <p class="font-mono text-xs text-ink/40 uppercase tracking-wider">Phone</p>
+              <a href="tel:+254794924309" class="font-display font-bold text-ink hover:text-red transition-colors">0794 924 309</a>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 shrink-0 fill-red" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <div>
+              <p class="font-mono text-xs text-ink/40 uppercase tracking-wider">Email</p>
+              <a href="mailto:info@meruchamber.co.ke" class="font-display font-bold text-ink hover:text-red transition-colors">info@meruchamber.co.ke</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

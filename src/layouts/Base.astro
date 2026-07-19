@@ -1,0 +1,89 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+}
+
+const siteUrl = 'https://meruchamber.co.ke';
+const {
+  title,
+  description = 'KNCCI Meru Chapter — the official county chamber representing Meru\'s business community under the national Kenya National Chamber of Commerce and Industry.',
+  canonical = siteUrl,
+  ogImage = '/images/logo/KNCCI LOGO final V1.png'
+} = Astro.props;
+const fullTitle = `${title} | KNCCI Meru Chapter`;
+const currentUrl = `${siteUrl}${Astro.url.pathname}`;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="KNCCI, Meru, Kenya, Chamber of Commerce, business, trade, membership, certificate of origin, advocacy, networking" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="KNCCI Meru Chapter" />
+    <link rel="canonical" href={currentUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={currentUrl} />
+    <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+    <meta property="og:site_name" content="KNCCI Meru Chapter" />
+    <meta property="og:locale" content="en_KE" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Facebook SDK -->
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "KNCCI Meru Chapter",
+      "description": description,
+      "url": siteUrl,
+      "logo": `${siteUrl}${ogImage}`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1st Floor, NHIF Building, opposite Royal Business Park",
+        "addressLocality": "Meru",
+        "addressCountry": "KE"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+254794924309",
+        "contactType": "customer service",
+        "email": "info@meruchamber.co.ke"
+      },
+      "openingHours": "Mo-Fr 09:00-17:00",
+      "sameAs": [
+        "https://kenyachamber.or.ke",
+        "https://web.facebook.com/profile.php?id=61572837654875"
+      ]
+    })} />
+  </head>
+  <body class="min-h-screen flex flex-col bg-white">
+    <Header currentPath={Astro.url.pathname} />
+    <main class="flex-1 pt-16 lg:pt-20">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

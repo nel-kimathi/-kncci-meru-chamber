@@ -1,0 +1,388 @@
+---
+import Base from '../layouts/Base.astro';
+import Seal from '../components/Seal.astro';
+import SectionDivider from '../components/SectionDivider.astro';
+import ScrollReveal from '../components/ScrollReveal.astro';
+
+const registerUrl = 'https://erp.kenyachamber.or.ke/kncci_meru/membership';
+
+const heroSlides = [
+  {
+    headline: "Empowering Meru's\nTrade & Enterprise",
+    sub: "The official county chamber representing Meru's business community under the national KNCCI umbrella.",
+    img: "/images/hero-homepage/179A7945.jpg",
+    alt: "Meru business district trade activity",
+  },
+  {
+    headline: "Connecting Meru\nto National Markets",
+    sub: "Trade fairs, expos, and market access programmes linking Meru producers to buyers across Kenya and beyond.",
+    img: "/images/hero-homepage/179A8183.jpg",
+    alt: "Chamber trade fair and expo event",
+  },
+  {
+    headline: "Building Capacity\nFor Growth",
+    sub: "Training, workshops, and capacity building for SMEs, agribusiness, and emerging enterprises in Meru County.",
+    img: "/images/hero-homepage/179A8348.jpg",
+    alt: "Business training and capacity building workshop",
+  },
+];
+
+const benefits = [
+  { icon: "M12 22c1.1 0 2-.9 2-2h-4a2 2 0 002 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z", title: "Advocacy & Policy", desc: "Representation on policy issues affecting Meru traders at county and national level." },
+  { icon: "M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z", title: "Networking & Connections", desc: "Monthly forums and networking events connecting you with fellow Meru business leaders." },
+  { icon: "M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z", title: "Trade Fairs & Expos", desc: "Access to chamber-organised trade fairs, exhibitions, and market access programmes." },
+  { icon: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z", title: "Capacity Building", desc: "Training workshops on business skills, compliance, export readiness, and digital tools." },
+  { icon: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z", title: "Dispute Resolution", desc: "Professional arbitration and mediation services for commercial disputes between members." },
+  { icon: "M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z", title: "Government Access", desc: "Direct engagement channels with county and national government on business matters." },
+];
+
+const events = [
+  { title: "Meru Business Forum Q3 2026", date: "2026-08-15", venue: "Meru Sports Club", desc: "Quarterly networking forum bringing together Meru business leaders and county officials.", img: "/images/chamber-events-homepage/WhatsApp Image 2026-07-18 at 11.24.50 PM.jpeg" },
+  { title: "Export Readiness Workshop", date: "2026-09-02", venue: "KNCCI Meru Office", desc: "Capacity building workshop on export documentation and market access for horticultural producers.", img: "/images/chamber-events-homepage/734023084_1595959488752383_281396285142645313_n.jfif" },
+  { title: "Annual Trade Fair 2026", date: "2026-10-20", venue: "Meru County Showground", desc: "The flagship annual trade exhibition showcasing Meru's products, services, and innovations.", img: "/images/chamber-events-homepage/741439022_1650927813706264_4407701890426235693_n.jpg" },
+];
+
+const news = [
+  { title: "Call for Applications: Export Readiness Programme", date: "2026-07-10" },
+  { title: "Factory Visit: Meru Tea Processing Plant", date: "2026-07-05" },
+  { title: "MOU Signing with County Government of Meru", date: "2026-06-28" },
+  { title: "Upcoming Business Forum — Register Now", date: "2026-06-20" },
+  { title: "New Member Spotlight: [Business Name]", date: "2026-06-15" },
+  { title: "Chamber Leadership Meeting Minutes Published", date: "2026-06-10" },
+];
+
+const partners = [
+  { name: "County Government of Meru", logo: "/images/trusted-logos/Partners 1.png" },
+  { name: "KNCCI National", logo: "/images/trusted-logos/Partners 2.png" },
+  { name: "Kenya Investment Authority", logo: "/images/trusted-logos/Partners 3.png" },
+  { name: "Meru County Investment & Development Corporation", logo: "/images/trusted-logos/Partners 4.png" },
+  { name: "Kenya Export Promotion & Branding Agency", logo: "/images/trusted-logos/Partners 5.png" },
+  { name: "Development Partner", logo: "/images/trusted-logos/Partners 6.png" },
+  { name: "Partner 7", logo: "/images/trusted-logos/Partners 7.png" },
+  { name: "Partner 8", logo: "/images/trusted-logos/Partners 8.png" },
+  { name: "Partner 9", logo: "/images/trusted-logos/Partners 9.png" },
+];
+---
+
+<Base title="Home" description="KNCCI Meru Chapter — empowering Meru's business community through advocacy, networking, trade fairs, capacity building, and government access. Join Kenya's premier business chamber.">
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- HERO CAROUSEL                                   -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section id="hero" class="relative bg-black overflow-hidden">
+    <div class="relative min-h-[70vh] lg:min-h-[85vh]">
+      {heroSlides.map((slide, i) => (
+        <div
+          class:list={['hero-slide', { active: i === 0 }]}
+          data-slide={i}
+        >
+          <div class="relative min-h-[70vh] lg:min-h-[85vh] flex items-center">
+            <div class="absolute inset-0">
+              <img src={slide.img} alt={slide.alt} class="w-full h-full object-cover" loading={i === 0 ? 'eager' : 'lazy'} />
+              <div class="duotone-overlay"></div>
+            </div>
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 w-full">
+              <div class="max-w-xl lg:max-w-2xl">
+                <h1 class="font-display font-black text-4xl sm:text-5xl lg:text-7xl text-white leading-[1.05] mb-6 whitespace-pre-line">
+                  {slide.headline}
+                </h1>
+                <p class="text-white/70 text-lg lg:text-xl mb-8 max-w-lg leading-relaxed">
+                  {slide.sub}
+                </p>
+                <div class="flex flex-wrap gap-4">
+                  <a
+                    href={registerUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center px-8 py-3.5 bg-red text-white font-display font-bold text-base rounded-sm hover:bg-red/90 transition-colors"
+                  >
+                    Become a Member
+                  </a>
+                  <a
+                    href="/about"
+                    class="inline-flex items-center px-8 py-3.5 border border-white/30 text-white font-display font-bold text-base rounded-sm hover:border-green hover:text-green transition-colors"
+                  >
+                    Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+
+      <!-- Slide indicators -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {heroSlides.map((_, i) => (
+          <button
+            class:list={[
+              'w-3 h-3 rounded-full transition-all duration-300',
+              i === 0 ? 'bg-red w-8' : 'bg-white/40 hover:bg-white/60'
+            ]}
+            data-dot={i}
+            aria-label={`Slide ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+
+    <script>
+      const slides = document.querySelectorAll('.hero-slide');
+      const dots = document.querySelectorAll('[data-dot]');
+      let current = 0;
+      let interval: ReturnType<typeof setInterval>;
+      const total = slides.length;
+
+      function goTo(index: number) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('bg-red', 'w-8');
+        dots[current].classList.add('bg-white/40');
+        current = index;
+        slides[current].classList.add('active');
+        dots[current].classList.remove('bg-white/40');
+        dots[current].classList.add('bg-red', 'w-8');
+      }
+
+      function next() { goTo((current + 1) % total); }
+      function startAutoplay() { interval = setInterval(next, 5000); }
+      function stopAutoplay() { clearInterval(interval); }
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => { stopAutoplay(); goTo(i); startAutoplay(); });
+      });
+
+      const hero = document.getElementById('hero');
+      hero?.addEventListener('mouseenter', stopAutoplay);
+      hero?.addEventListener('mouseleave', startAutoplay);
+      startAutoplay();
+    </script>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- PATRON SECTION                                  -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <SectionDivider class="my-0" />
+  <section class="bg-white py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div class="relative">
+          <div class="aspect-[3/4] bg-black/5 rounded-sm overflow-hidden relative">
+            <img
+              src="/images/governor-potrait-homepage/Govana (1).png"
+              alt="H.E. Hon. Isaac Mutuma M'Ethingia, Governor of Meru County"
+              class="w-full h-full object-contain bg-black/5"
+              loading="lazy"
+            />
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+              <p class="font-mono text-green text-xs uppercase tracking-wider">Patron of the Chamber</p>
+              <p class="text-white font-display font-bold text-lg mt-1">H.E. Hon. Isaac Mutuma M'Ethingia</p>
+              <p class="text-white/70 text-sm">Governor, Meru County</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="font-mono text-red text-xs uppercase tracking-widest mb-3">Patron's Message</p>
+          <h2 class="font-display font-black text-3xl lg:text-4xl text-ink leading-tight mb-6">A Message of Support</h2>
+          <div class="relative pl-6 border-l-2 border-red">
+            <p class="text-ink/80 text-lg leading-relaxed italic mb-4">
+              As Patron of KNCCI Meru Chapter, I am proud to support an institution that champions entrepreneurship, investment, and sustainable economic growth across Meru County. Through strong collaboration between government, the private sector, and our development partners, we are creating an enabling environment where businesses can thrive, innovate, and contribute meaningfully to our county's prosperity.
+            </p>
+            <p class="text-ink/80 text-lg leading-relaxed italic mb-4">
+              I commend KNCCI Meru Chapter for its continued dedication to empowering enterprises, promoting trade, and positioning Meru as a premier destination for investment. Together, we remain committed to building a resilient, inclusive, and globally competitive economy for the benefit of all.
+            </p>
+          </div>
+          <div class="mt-8 flex items-center gap-4">
+            <div class="w-12 h-px bg-red"></div>
+            <div>
+              <p class="font-display font-bold text-ink">H.E. Hon. Isaac Mutuma M'Ethingia</p>
+              <p class="font-mono text-sm text-ink/60">Governor, Meru County &amp; Patron, KNCCI Meru Chapter</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <SectionDivider class="my-0" />
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- EVENTS SLIDER                                   -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="bg-black py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between mb-10">
+        <div>
+          <p class="font-mono text-red text-xs uppercase tracking-widest mb-2">Upcoming</p>
+          <h2 class="font-display font-black text-3xl lg:text-4xl text-white">Chamber Events</h2>
+        </div>
+        <a href="/events" class="text-green text-sm font-medium hover:underline hidden sm:block">View all events &rarr;</a>
+      </div>
+      <div class="relative" id="events-carousel">
+        {events.map((ev, i) => (
+          <div class:list={['event-slide', { active: i === 0 }]} data-event-slide={i}>
+            <div class="grid md:grid-cols-2 gap-6 lg:gap-10 items-center">
+              <div class="aspect-[3/2] rounded-sm overflow-hidden bg-white/10">
+                <img src={ev.img} alt={ev.title} class="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div>
+                <p class="font-mono text-red text-xs uppercase tracking-wider mb-2">
+                  {new Date(ev.date).toLocaleDateString('en-KE', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </p>
+                <h3 class="font-display font-bold text-2xl lg:text-3xl text-white mb-3">{ev.title}</h3>
+                <p class="text-white/60 text-sm mb-2"><span class="text-green">Venue:</span> {ev.venue}</p>
+                <p class="text-white/70 leading-relaxed mb-6">{ev.desc}</p>
+                <a href="/events" class="inline-flex items-center px-6 py-2.5 border border-red text-white text-sm font-display font-bold rounded-sm hover:bg-red transition-colors">
+                  View Details
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+        <div class="flex gap-2 mt-8 justify-center">
+          {events.map((_, i) => (
+            <button
+              class:list={[
+                'w-2.5 h-2.5 rounded-full transition-all duration-300',
+                i === 0 ? 'bg-red w-6' : 'bg-white/30 hover:bg-white/50'
+              ]}
+              data-event-dot={i}
+              aria-label={`Event ${i + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+      <script>
+        const eventSlides = document.querySelectorAll('[data-event-slide]');
+        const eventDots = document.querySelectorAll('[data-event-dot]');
+        let evCurrent = 0;
+        let evInterval: ReturnType<typeof setInterval>;
+        const evTotal = eventSlides.length;
+        function goToEvent(index: number) {
+          eventSlides[evCurrent].classList.remove('active');
+          eventDots[evCurrent].classList.remove('bg-red', 'w-6');
+          eventDots[evCurrent].classList.add('bg-white/30');
+          evCurrent = index;
+          eventSlides[evCurrent].classList.add('active');
+          eventDots[evCurrent].classList.remove('bg-white/30');
+          eventDots[evCurrent].classList.add('bg-red', 'w-6');
+        }
+        function nextEvent() { goToEvent((evCurrent + 1) % evTotal); }
+        evInterval = setInterval(nextEvent, 6000);
+        eventDots.forEach((dot, i) => {
+          dot.addEventListener('click', () => { clearInterval(evInterval); goToEvent(i); evInterval = setInterval(nextEvent, 6000); });
+        });
+      </script>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- BENEFITS CARDS                                  -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <SectionDivider class="my-0" />
+  <section class="bg-white py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="font-mono text-red text-xs uppercase tracking-widest mb-2">Why Join</p>
+        <h2 class="font-display font-black text-3xl lg:text-4xl text-ink">Membership Benefits</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {benefits.map((b) => (
+          <a href="/benefits" class="card-reveal folder-tab bg-white p-6 lg:p-8 border border-black/10 hover:border-red/40 transition-all duration-300 group">
+            <div class="w-10 h-10 rounded-sm bg-green/10 flex items-center justify-center mb-4 group-hover:bg-red/10 transition-colors">
+              <svg class="w-5 h-5 fill-green group-hover:fill-red transition-colors" viewBox="0 0 24 24"><path d={b.icon} /></svg>
+            </div>
+            <h3 class="font-display font-bold text-lg text-ink mb-2 group-hover:text-red transition-colors">{b.title}</h3>
+            <p class="text-ink/60 text-sm leading-relaxed">{b.desc}</p>
+          </a>
+        ))}
+      </div>
+      <div class="text-center mt-10">
+        <a href="/benefits" class="inline-flex items-center px-8 py-3 bg-red text-white font-display font-bold text-sm rounded-sm hover:bg-red/90 transition-colors">
+          View All Benefits
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <ScrollReveal />
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- NEWS & UPDATES STRIP                            -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <SectionDivider class="my-0" />
+  <section class="bg-black/5 py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between mb-8">
+        <div>
+          <p class="font-mono text-red text-xs uppercase tracking-widest mb-2">Latest</p>
+          <h2 class="font-display font-black text-2xl lg:text-3xl text-ink">News & Updates</h2>
+        </div>
+      </div>
+      <div class="space-y-0 divide-y divide-black/10">
+        {news.slice(0, 4).map((item) => (
+          <a href="/events" class="flex items-start gap-4 py-4 group hover:bg-black/5 px-2 -mx-2 transition-colors rounded-sm">
+            <span class="font-mono text-xs text-ink/40 mt-1 shrink-0 w-24">
+              {new Date(item.date).toLocaleDateString('en-KE', { month: 'short', day: 'numeric' })}
+            </span>
+            <span class="font-display font-bold text-sm lg:text-base text-ink group-hover:text-red transition-colors">
+              {item.title}
+            </span>
+          </a>
+        ))}
+      </div>
+      <div class="mt-6 text-center">
+        <a href="/events" class="text-red text-sm font-medium hover:underline">Load more updates &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- PARTNERS                                        -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <SectionDivider class="my-0" />
+  <section class="bg-black py-12 lg:py-16 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-center font-mono text-white/40 text-xs uppercase tracking-widest mb-8">Trusted By</p>
+    </div>
+    <div class="relative">
+      <div class="partners-track flex items-center gap-16 animate-scroll">
+        {[...partners, ...partners].map((p) => (
+          <img src={p.logo} alt={p.name} class="h-16 lg:h-20 w-auto shrink-0 opacity-50 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0" loading="lazy" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <style>
+    @keyframes scroll-partners {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .partners-track {
+      animation: scroll-partners 30s linear infinite;
+      width: max-content;
+    }
+    .partners-track:hover {
+      animation-play-state: paused;
+    }
+  </style>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- FINAL CTA                                       -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="bg-red py-16 lg:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="mb-6"><Seal size={80} class="mx-auto opacity-60" /></div>
+      <h2 class="font-display font-black text-3xl lg:text-4xl text-white mb-4">Ready to Join Meru's Business Community?</h2>
+      <p class="text-white/80 text-lg mb-8 max-w-xl mx-auto leading-relaxed">
+        Become a member of KNCCI Meru Chapter and access advocacy, networking, training, and trade opportunities.
+      </p>
+      <a
+        href={registerUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center px-10 py-4 bg-white text-red font-display font-bold text-lg rounded-sm hover:bg-white/90 transition-colors"
+      >
+        Register Now
+      </a>
+    </div>
+  </section>
+</Base>
