@@ -1,6 +1,5 @@
 {
   "buildCommand": "astro build",
   "outputDirectory": "dist",
-  "framework": "astro",
-  "nodeVersion": "22"
+  "framework": "astro"
 }
