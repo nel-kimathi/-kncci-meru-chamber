@@ -1,22 +1,14 @@
-# Image Placeholders
+# Images
 
-Drop your real images here. The site references these filenames:
+All site images are organised into category folders under `public/images/`.
 
-| Filename | Where it's used |
+| Folder | Contents |
 |---|---|
-| `logo.png` | Header & Footer (white background logo) |
-| `logo-white.png` | Footer (white version for dark bg) |
-| `hero-1.jpg` | Hero carousel slide 1 |
-| `hero-2.jpg` | Hero carousel slide 2 |
-| `hero-3.jpg` | Hero carousel slide 3 |
-| `governor.jpg` | Homepage patron section |
-| `chairman.jpg` | Secretariat — Chairman |
-| `ceo.jpg` | Secretariat — CEO |
-| `board-1.jpg` through `board-10.jpg` | Secretariat — Board members |
-| `marketing.jpg` | Secretariat — Head of Marketing |
-| `admin-it.jpg` | Secretariat — Admin/IT Officer |
-| `event-*.jpg` | Events page + homepage events slider |
-| `gallery-*.jpg` | Gallery page |
+| `heroes/` | Full-width page hero background images |
+| `portraits/` | Leadership, board, and team member portraits + governor + chapter photo |
+| `events/` | Event card and homepage slider images |
+| `gallery/` (was `gallery-page/`) | Gallery page photos (`gallery-1.jpg` … `gallery-39.jpg`) |
+| `logos/` | Partner / trusted-by logos (`partner-1.png` … `partner-9.png`) |
+| `logo/` | Chamber logo (`kncci-logo.png`) |
 
-After dropping files, update the URLs in the .astro files from
-`https://placehold.co/...` to `/images/yourfilename.jpg`.
+The homepage gallery images live in `gallery-page/` and are referenced in `src/pages/gallery.astro`. Partner logos live in `logos/` and are referenced in `src/pages/index.astro`.
