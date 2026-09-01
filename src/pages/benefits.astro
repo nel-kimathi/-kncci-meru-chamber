@@ -9,6 +9,7 @@ const individualTiers = [
     price: "KES 2,500",
     period: "/year",
     ideal: "Individuals, startups, and small & medium-sized enterprises (SMEs).",
+    registerUrl: "https://erp.kenyachamber.or.ke/kncci_meru/register/498",
     features: [
       "Access to business networking events",
       "Advocacy and representation",
@@ -26,6 +27,7 @@ const companyTiers = [
     period: "/year",
     ideal: "Registered businesses seeking greater visibility and business growth opportunities.",
     popular: true,
+    registerUrl: "https://erp.kenyachamber.or.ke/kncci_meru/register/628",
     features: [
       "Business networking opportunities",
       "Policy advocacy and representation",
@@ -39,6 +41,7 @@ const companyTiers = [
     price: "KES 50,000",
     period: "/year",
     ideal: "Corporations, financial institutions, and SACCOs.",
+    registerUrl: "https://erp.kenyachamber.or.ke/kncci_meru/register/629",
     features: [
       "High-level business networking",
       "Corporate advocacy and policy engagement",
@@ -52,6 +55,7 @@ const companyTiers = [
     price: "KES 55,000",
     period: "/year",
     ideal: "Recruitment firms and human resource service providers.",
+    registerUrl: "https://erp.kenyachamber.or.ke/kncci_meru/register/802",
     features: [
       "Networking with employers and businesses",
       "Industry advocacy",
@@ -65,6 +69,7 @@ const companyTiers = [
     price: "KES 100,000",
     period: "/year",
     ideal: "Large-scale agricultural enterprises and commercial farms.",
+    registerUrl: "https://erp.kenyachamber.or.ke/kncci_meru/register/630",
     features: [
       "Sector-specific advocacy",
       "Access to agricultural trade opportunities",
@@ -156,7 +161,7 @@ const services = [
                   </li>
                 ))}
               </ul>
-              <a href="https://erp.kenyachamber.or.ke/kncci_meru/membership" target="_blank" rel="noopener noreferrer" class="block text-center py-3 bg-black text-white font-display font-bold text-sm rounded-sm hover:bg-green transition-colors duration-300">
+              <a href={tier.registerUrl} target="_blank" rel="noopener noreferrer" class="block text-center py-3 bg-black text-white font-display font-bold text-sm rounded-sm hover:bg-green transition-colors duration-300">
                 Register Now
               </a>
             </div>
@@ -187,7 +192,7 @@ const services = [
                   </li>
                 ))}
               </ul>
-              <a href="https://erp.kenyachamber.or.ke/kncci_meru/membership" target="_blank" rel="noopener noreferrer" class:list={[
+              <a href={tier.registerUrl} target="_blank" rel="noopener noreferrer" class:list={[
                 'block text-center py-3 font-display font-bold text-sm rounded-sm transition-colors duration-300',
                 tier.popular ? 'bg-red text-white hover:bg-green' : 'bg-black text-white hover:bg-green'
               ]}>
